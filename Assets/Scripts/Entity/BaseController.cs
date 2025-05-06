@@ -4,6 +4,7 @@ using UnityEngine;
 public class BaseController : MonoBehaviour
 {
     protected Rigidbody2D _rigidbody; // 이동을 위한 물리 컴포넌트
+    protected AnimationHandler animationHandler;
 
     [SerializeField] private SpriteRenderer characterRenderer; // 좌우 반전을 위한 렌더러
     [SerializeField] private Transform weaponPivot; // 무기를 회전시킬 기준 위치
@@ -20,6 +21,7 @@ public class BaseController : MonoBehaviour
     protected virtual void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        animationHandler = GetComponent<AnimationHandler>();
     }
 
     protected virtual void Start()
@@ -60,6 +62,8 @@ public class BaseController : MonoBehaviour
 
         // 실제 물리 이동
         _rigidbody.velocity = direction;
+        // 이동 애니메이션 처리
+        animationHandler.Move(direction);
     }
 
     private void Rotate(Vector2 direction)
