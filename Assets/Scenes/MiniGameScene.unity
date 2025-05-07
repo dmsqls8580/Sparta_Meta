@@ -2497,6 +2497,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   restartText: {fileID: 615725774}
   ExitText: {fileID: 187806235}
+  currentScoreText: {fileID: 515844946}
+  bestScoreText: {fileID: 878668455}
 --- !u!1 &906932800
 GameObject:
   m_ObjectHideFlags: 0

@@ -49,20 +49,30 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Game Over");
 
+        // 최고 점수 저장
+        int bestScore = PlayerPrefs.GetInt("BestScore", 0);
+        if (currentScore > bestScore)
+        {
+            PlayerPrefs.SetInt("BestScore", currentScore);
+            PlayerPrefs.Save();
+        }
+
         // UI 상태 변경
         uiManager.SetGameOver();
 
-        // GameOverUI 텍스트 활성화
+        // GameOverUI 점수 표시
         GameOverUI gameOverUI = FindObjectOfType<GameOverUI>();
         if (gameOverUI != null)
         {
             gameOverUI.SetRestart();
+            gameOverUI.ShowScore(currentScore, PlayerPrefs.GetInt("BestScore", 0));
         }
         else
         {
             Debug.LogWarning("GameOverUI is not found.");
         }
     }
+
 
     public void RestartGame()
     {

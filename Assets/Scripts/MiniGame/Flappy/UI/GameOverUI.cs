@@ -51,7 +51,7 @@ public class GameOverUI : BaseUI
     private void RestartToHome()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        // GameManager의 Start에서 SetHome()만 하므로 isFirstLoading = false 유지
+        Time.timeScale = 0f;
     }
 
     // ESC 누르면 미니게임 종료 → 맵 씬으로 복귀
