@@ -60,7 +60,7 @@ public class NPCInteraction : MonoBehaviour
     private void OnDialogueEnd()
     {
         // 대화 끝나면 미니게임 시작
-        MiniGameManager.Instance.StartMiniGame();
+        GameManager.Instance.StartGame();
     }
 
     private void StartMiniGame()
